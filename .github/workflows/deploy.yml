@@ -44,7 +44,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script_stop: true
-          script: \
+          script: |
             sudo yum update -y && sudo yum install -y java-21-amazon-corretto
             for pid in $(pgrep java); do
               if ps -p $pid -o args= | grep -q 'java -jar'; then
